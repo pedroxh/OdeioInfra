@@ -1,7 +1,7 @@
 from netmiko import ConnectHandler
 sandbox = {
              'device_type': 'cisco_xe',
-             'host': 'IP ou Hostname',
+             'host': 'sandbox-iosxe-latest-1.cisco.com',
              'username':'developer',
              'password': 'C1sco12345',
   #Username e Password são os do Cisco Sandbox always-on lab
