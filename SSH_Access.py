@@ -1,9 +1,11 @@
 from netmiko import ConnectHandler
 sandbox = {
              'device_type': 'cisco_xe',
-             'host': '10.10.20.48',
+             'host': 'IP ou Hostname',
              'username':'developer',
              'password': 'C1sco12345',
+  #Username e Password são os do Cisco Sandbox always-on lab
+  #Arquivo 'Config-file' é um TXT que definimos os comandos que iremos dar após conectar o device
 }
 with open('Config-file') as file:
    config_lines = file.read().splitlines()
