@@ -6,7 +6,7 @@
 import requests
 import json
 
-# Suppress HTTPS warnings
+# Suppress HTTPS Warnings
 from urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
  
