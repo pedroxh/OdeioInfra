@@ -1,0 +1,50 @@
+#BASIC NAPALM TO GET INFORMATION#
+#from napalm import get_network_driver
+#import json
+
+#driver = get_network_driver ("ios")
+
+#device = driver(
+#    hostname="sandbox-iosxe-recomm-1.cisco.com",
+#    username="developer",
+#    password="C1sco12345",
+#    optional_args={"port": 22},
+#)
+
+#device.open()
+
+#output = device.get_arp_table()
+#print(json.dumps(output, indent=4))
+#print ("Segue as informações do router")
+
+
+###############################CONFIG BGP WITH NAPALAM################################################################
+
+
+from napalm import get_network_driver
+import json
+
+driver = get_network_driver ("ios")
+
+device = driver(
+    hostname="sandbox-iosxe-recomm-1.cisco.com",
+    username="developer",
+    password="C1sco12345",
+    optional_args={"port": 22},
+)
+
+device.open()
+print ('BGP Configuration in process...Wait')
+device.load_merge_candidate(filename="NapalmBGP-R1.cfg")
+device.commit_config()
+print ("BGP Configuration DONE")
+
+input("Do you like to see the BGP configuration?")
+bgp_info = input()
+if  (bgp_info=="Yes"):
+     print ("Follow the BGP configuration")
+     output = device.get_bgp_config()
+     print(json.dumps(output, indent=4))
+elif bgp_info != "Yes":
+     device.close()
+     print ("Done")
