@@ -39,12 +39,11 @@ device.load_merge_candidate(filename="NapalmBGP-R1.cfg")
 device.commit_config()
 print ("BGP Configuration DONE")
 
-input("Do you like to see the BGP configuration?")
-bgp_info = input()
+bgp_info=str(input("Do you like to see the BGP configuration?))
 if  (bgp_info=="Yes"):
      print ("Follow the BGP configuration")
      output = device.get_bgp_config()
      print(json.dumps(output, indent=4))
-elif bgp_info != "Yes":
+else:
      device.close()
      print ("Done")
